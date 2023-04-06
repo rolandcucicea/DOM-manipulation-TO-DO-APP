@@ -26,12 +26,23 @@ function addTasks(task) {
   return taskList;
 }
 
-function editTask() {}
-
-function deleteTask(e) {
+function buttonFunctionalities(e) {
   if (e.target.matches("#del-btn")) {
     const task = e.target.closest("li");
     task.remove();
+  } else if (e.target.matches("#edit-btn")) {
+    const inputTask = document.createElement("input");
+    const listElement = e.target.closest("li");
+    inputTask.value = listElement.firstChild.textContent;
+    listElement.replaceWith(inputTask);
+    inputTask.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        const newText = document.createTextNode(inputTask.value);
+        inputTask.replaceWith(listElement);
+        const oldText = listElement.firstChild;
+        listElement.replaceChild(newText, oldText);
+      }
+    });
   }
 }
 
@@ -41,4 +52,4 @@ submitButton.addEventListener("click", () => {
 });
 
 const taskList = document.querySelector("#task-list");
-taskList.addEventListener("click", (e) => deleteTask(e));
+taskList.addEventListener("click", buttonFunctionalities);
