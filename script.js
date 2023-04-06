@@ -15,11 +15,17 @@ function childButtons() {
 
 function addTasks(task) {
   const listElement = document.createElement("li");
-  listElement.textContent = task;
+  const spanContainer = document.createElement('span');
+  spanContainer.textContent = task;
+  listElement.appendChild(spanContainer);
 
+  const buttonContainer = document.createElement('span');
   const buttons = childButtons();
-  listElement.appendChild(buttons.editButton);
-  listElement.appendChild(buttons.deleteButton);
+  buttonContainer.appendChild(buttons.editButton);
+  buttonContainer.appendChild(buttons.deleteButton);
+
+  listElement.appendChild(buttonContainer);
+  
 
   const taskList = document.getElementById("task-list");
   taskList.appendChild(listElement);
