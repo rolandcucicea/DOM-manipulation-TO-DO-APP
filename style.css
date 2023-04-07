@@ -2,9 +2,10 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    height: 100vh;
+    background-image: linear-gradient(to bottom right, #000000, #0084b0ab);
 }
 .container {
-    max-width: 800px;
     margin: 0 auto;
     padding: 20px;
 }
@@ -20,6 +21,10 @@ input[type="text"] {
     box-sizing: border-box;
     text-align: c;
 }
+input {
+    text-align: center;
+    padding: 10px;
+}
 button {
     width: 100%;
     padding: 8px;
@@ -29,7 +34,7 @@ button {
     cursor: pointer;
     margin-top: 10px;
 }
-button#edit-btn, button#del-btn{
+button#edit-btn, button#del-btn, button#done-btn{
     width: 5rem;
 }
 button:hover {
